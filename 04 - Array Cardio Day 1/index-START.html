@@ -105,13 +105,25 @@
         return firstLived > secondLived ? 1 : -1;
       });
 
-      console.table(oldest);
+      // console.table(oldest);
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      // const category = document.querySelector(".mw-category");
+      // const links = [...category.querySelectorAll("a")];
+      // const de = links
+      //   .map(link => link.textContent)
+      //   .filter(textContent => textContent.includes("de"));
+      // console.table(de);
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+
+      const alpha = people.sort((first, second) => {
+        const [aLast, aFirst] = first.split(", ");
+        const [bLast, bFirst] = second.split(", ");
+        return aLast > bLast ? 1 : -1;
+      });
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -131,6 +143,16 @@
         "car",
         "truck"
       ];
+
+      const sums = data.reduce((obj, item) => {
+        if (!obj[item]) {
+          obj[item] = 1;
+        }
+        obj[item]++;
+        return obj;
+      }, {});
+
+      console.log(sums);
     </script>
   </body>
 </html>
